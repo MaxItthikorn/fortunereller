@@ -1,0 +1,32 @@
+body {
+    font-family: FC-Subject-Rounded-Regular;
+    font-size: 18px;
+    background-color: #d5d1f6;
+}
+
+@font-face {
+    font-family: FC-Subject-Rounded-Regular;
+    src: url('./asset/font/FC-Subject-Rounded-Regular.otf');
+}
+
+fieldset, legend {
+    all: revert;
+    border-radius: 5px;
+}
+
+.topcenter {
+    display: flex;
+    justify-content: center;
+}
+
+.img {
+    height: 350px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 836px) {
+    .img {
+        height: 200px;
+    }
+}

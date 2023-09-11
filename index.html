@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+        <title>เซียมซีนำโชค</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row mt-2 topcenter">
+                <div class="col-11">
+                    <div class="row topcenter" style="height: auto; border: 1px solid black;">
+                        <div class="col-12" style="text-align: center;">
+                            <label style="font-size: 3rem;">เซียมซีนำโชค</label>
+                        </div>
+                        <div class="col-6 topcenter">
+                            <img id="image1" class="img">
+                        </div>
+                        <div class="col-6 topcenter">
+                            <img id="image2" class="img">
+                        </div>
+                        <div class="col-12 mb-2">
+                            <fieldset>
+                                <legend>เขียนคำปรารถนา</legend>
+                                <div class="row">
+                                    <div class="col-7">
+                                        <textarea style="width: 100%; text-align: center;" id="wish" placeholder="ใส่คำปรารถนา" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-5 topcenter" style="align-items: center;">
+                                        <div class="row" style="width: 100%;">
+                                            <button class="btn btn-success mb-2" onclick="checkrandom();">เสี่ยงเซียมซี</button>
+                                            <button class="btn btn-info" id="result" onclick="results();">อ่านผลลัพธ์</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <fieldset>
+                                <legend>กฎกติกา</legend>
+                                <div class="row mb-2">
+                                    <div class="col-6 topcenter" style="border-right: 1px solid black;">
+                                        <label style="font-size: 1.5rem;"><b>รูปแบบ</b></label>
+                                    </div>
+                                    <div class="col-6 topcenter">
+                                        <label style="font-size: 1.5rem;"><b>ผลลัพธ์</b></label>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row mb-2">
+                                    <div class="col-6 topcenter" style="border-right: 1px solid black;">
+                                        <label style="text-align: center;">
+                                            <img src="./asset/image/image2.png" height="50">
+                                            <img src="./asset/image/image2.png" height="50" style="rotate: 180deg;">
+                                            <label>เฉี่ยปวย</label>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 topcenter">
+                                        <label style="text-align: center;">คำถามคลุมเครือ<br><u>โยนถามใหม่อีกครั้ง</u></label>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row mb-2">
+                                    <div class="col-6 topcenter" style="border-right: 1px solid black;">
+                                        <label style="text-align: center;">
+                                            <img src="./asset/image/image1.png" height="50" style="rotate: 180deg;">
+                                            <img src="./asset/image/image1.png" height="50">
+                                            <label>อิมโปย</label>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 topcenter">
+                                        <label style="text-align: center;">ทำนายไม่สัมฤทธิ์<br><u>ไม่เป็นไปตามปรารถนา</u></label>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-6 topcenter" style="border-right: 1px solid black;">
+                                        <label style="text-align: center;">
+                                            <img src="./asset/image/image1.png" height="50" style="rotate: 180deg;">
+                                            <img src="./asset/image/image2.png" height="50" style="rotate: 180deg;">
+                                            <label>เซ้งปวย</label>
+                                        </label>
+                                    </div>
+                                    <div class="col-6 topcenter">
+                                        <label style="text-align: center;">ทำนายสัมฤทธิ์<br><u>เป็นไปตามปรารถนา</u></label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+  
+  <!-- Modal -->
+<div class="modal fade" id="warningwish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">คุณยังไม่ได้ป้อนคำปรารถนา</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ลองอีกครั้ง"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <img src="./asset/image/warning.png" alt="warning" height="100px" width="100px"/>
+            </div>
+            <div class="col-12" style="text-align: center;">
+                <label>กรุณากรอกคำอธิฐานของคุณ</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ลองอีกครั้ง</button>
+    </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="resultwish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">ผลลัพธ์ปรารถนา</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ลองอีกครั้ง"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-12 mb-2" style="text-align: center;">
+                    <img src="./asset/image/warning.png" id="modalimage1" alt="warning" height="100px" width="100px"/>
+                    <img src="./asset/image/warning.png" id="modalimage2" alt="warning" height="100px" width="100px"/>
+                </div>
+                <div class="col-12 mb-3" style="text-align: center;">
+                    <h3 id="textresult"></h3>
+                </div>
+                <div class="col-12">
+                    <label>คำปรารถนา : <span id="showwish"></span></label><br>
+                    <label>ผลลัพธ์ : <span id="showresult"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">ตกลง</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
